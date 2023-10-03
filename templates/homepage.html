@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'homepage.css' %}" />
+    <title>Homepage</title>
+</head>
+<body>
+	<div class="content-container">
+<div class="glass-pane homepage-glass-pane"></div> <!-- Glass pane for the entire content -->
+<header>
+    <!-- Navbar for homepage -->
+    <nav>
+        <div class="user-info">
+            {% if user.is_authenticated %}
+                Logged in as: {{ user.username }} | <a href="{% url 'login' %}">Logout</a>
+            {% else %}
+                <a href="{% url 'login' %}">Login</a> | <a href="{% url 'register' %}">Register</a>
+            {% endif %}
+        </div>
+    </nav>
+    <h1>Welcome to the Task Manager</h1>
+</header>
+<main>
+    <section class="hero">
+        <h2>Manage Your Tasks Effortlessly</h2>
+        <p>Stay organized and get things done with our Task Manager app.</p>
+        <a href="{% url 'task_list' %}" class="cta-button">Get Started</a>
+    </section>
+    <section class="features">
+        <h2>Key Features</h2>
+        <ul>
+            <li>Track and manage your tasks with ease.</li>
+            <li>Prioritize tasks and set due dates.</li>
+            <li>Collaborate with others by sharing tasks.</li>
+            <li>Stay updated on task progress.</li>
+        </ul>
+    </section>
+</main>
+</div>
+<footer>
+    <p>&copy; 2023 Task Manager</p>
+</footer>
+</body>
+</html>
