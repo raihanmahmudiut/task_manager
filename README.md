@@ -22,7 +22,7 @@ Task Tracker utilizes Django's built-in authentication methods for user registra
 ## Screenshots
 
 ![Screenshot 1](https://drive.google.com/uc?id=1XhTjI2gAFv_vCREoKMF38__AN7FVZioE)
-![Screenshot 2](https://drive.google.com/uc?id=1XhTjI2gAFv_vCREoKMF38__AN7FVZioE)
+![Screenshot 2](https://drive.google.com/file/d/1B1NrwpOSMpDYRuPOtJ-eLEWs6en1g4Kx/view?usp=sharing)
 
 
 
