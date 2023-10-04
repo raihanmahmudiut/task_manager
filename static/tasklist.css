@@ -56,7 +56,7 @@ body {
 .content-container {
 	display: flex;
 	flex-direction: row;
-	width: 1440px;
+	width: 100%;
 	padding: 20px;
 	min-height: calc(100vh - 60px); /* Make the content container full height */
 	gap: 30px;
@@ -110,15 +110,49 @@ body {
 	flex-direction: column;
 	align-items: center;
 }
+
+.input-field {
+	padding: 20px;
+	border-radius: 5px;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+}
+
+.task-input {
+	border-radius: 5px;
+	color: #333;
+	background-color: radial-gradient(
+		at 0% 0%,
+		hsla(343, 100%, 76%, 1) 0px,
+		transparent 50%
+	);
+}
+
+.input-button {
+	background-color: #333;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+
+	color: white;
+	border: none;
+	padding: 5px 10px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
 .task-list {
 	margin-top: 20px;
 	width: 90%;
 }
 /* Task item styles */
 .task-item {
-	background-color: #fff;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 	padding: 10px;
-	border: 1px solid #ccc;
+	color: white;
 	border-radius: 5px;
 	margin-bottom: 10px;
 	display: flex;
@@ -135,8 +169,6 @@ body {
 .task-text {
 	flex-grow: 1;
 	margin-right: 10px;
-
-	word-break: break-word;
 }
 
 /* Task buttons container styles */
@@ -198,6 +230,11 @@ body {
 	z-index: 2; /* Place above other content */
 }
 
+.glass-pane {
+	backdrop-filter: blur(16px) saturate(180%);
+	background-color: rgba(255, 255, 255, 0.4);
+}
+
 /* Task status dropdown styles
 .task-status-dropdown {
 	padding: 5px;
@@ -232,8 +269,8 @@ body {
 
 /* Task item styles */
 .assigned-task-item {
-	background-color: #fff;
-	border: 1px solid #ccc;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+	color: white;
 	border-radius: 5px;
 	padding: 10px;
 	display: flex;
@@ -283,4 +320,43 @@ body {
 	text-align: center;
 	padding: 10px 0;
 	bottom: 0;
+}
+
+/* Add this CSS after your existing styles */
+
+/* Media query for small screens (up to 767px) */
+@media screen and (max-width: 767px) {
+	/* Reset flex-direction for both personal-tasks and assigned-tasks */
+	.task-columns {
+		flex-direction: column;
+		width: 100%;
+	}
+
+	.personal-tasks {
+		width: 100%;
+	}
+
+	.assigned-tasks {
+		width: 100%;
+	}
+
+	.content-container {
+		flex-direction: column;
+	}
+}
+
+/* Media query for medium screens (768px to 1023px) */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+	/* Reset flex-direction for both personal-tasks and assigned-tasks */
+	.task-columns {
+		flex-direction: column;
+		width: 100%;
+	}
+	.personal-tasks {
+		width: 100%;
+	}
+
+	.assigned-tasks {
+		width: 100%;
+	}
 }

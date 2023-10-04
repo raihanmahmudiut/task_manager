@@ -41,7 +41,7 @@ function addTask(taskText) {
 
 		const removeButton = document.createElement("button");
 		removeButton.type = "button";
-		removeButton.textContent = "Remove";
+
 		// Create the Font Awesome icon element
 		const removeIcon = document.createElement("i");
 		removeIcon.classList.add("fa-solid", "fa-trash");
@@ -60,7 +60,7 @@ function addTask(taskText) {
 
 		const editButton = document.createElement("button");
 		editButton.type = "button";
-		editButton.textContent = "Edit";
+
 		// Create the Font Awesome icon element
 		const editIcon = document.createElement("i");
 		editIcon.classList.add("fa-regular", "fa-pen-to-square");
