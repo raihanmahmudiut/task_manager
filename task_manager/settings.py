@@ -51,6 +51,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+LOGOUT_REDIRECT_URL = 'homepage'
+
 ROOT_URLCONF = 'task_manager.urls'
 
 TEMPLATES = [
