@@ -1,9 +1,15 @@
-from django.urls import path
+from django.urls import include, path
 from . import views
+from rest_framework.urlpatterns import format_suffix_patterns
 
 urlpatterns = [
-    path('', views.task_list, name='task_list'),
-    path('create/', views.create_task, name='create_task'),  # New task creation view
-    path('delete-task/<int:task_id>/', views.delete_task, name='delete_task'),
-    path('edit-task/<int:task_id>/', views.edit_task, name='edit_task'),  # Main task list view
+    path("task_list/", views.task_list, name="task_list"),
+    path("create_task/", views.create_task, name="create_task"),
+    path(
+        "update_status/<int:task_id>/",
+        views.update_task,
+        name="update_task_status",
+    ),  # Include the API-level URLs here
 ]
+
+urlpatterns = format_suffix_patterns(urlpatterns)

@@ -140,3 +140,35 @@ function saveToLocalStorage() {
 	);
 	localStorage.setItem("tasks", JSON.stringify(tasks));
 }
+
+function getCSRFToken() {
+	const name = "csrftoken=";
+	const cookieArray = document.cookie.split(";");
+	for (let i = 0; i < cookieArray.length; i++) {
+		let cookie = cookieArray[i].trim();
+		if (cookie.indexOf(name) === 0) {
+			return cookie.substring(name.length, cookie.length);
+		}
+	}
+	return null; // If CSRF token is not found
+}
+
+function updateTaskStatus(selectElement) {
+	const taskId = selectElement.getAttribute("data-task-id");
+	const newStatus = selectElement.value;
+
+	const csrfToken = getCSRFToken(); // Get the CSRF token
+
+	fetch(`/tasks/update_status/${taskId}/`, {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/x-www-form-urlencoded",
+			"X-CSRFToken": csrfToken, // Use the retrieved CSRF token
+		},
+		body: `status=${newStatus}`,
+	})
+		.then((response) => response.json())
+		.then((data) => {
+			console.log(data.message);
+		});
+}

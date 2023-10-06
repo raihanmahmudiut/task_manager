@@ -69,11 +69,15 @@
                             <div class="assigned-task-description">Description: {{ task.description }}</div>
                             <div class="assigned-task-due">Due: {{ task.due_date }}</div>
                         </div>
-                        <select class="assigned-task-status" data-task-id="{{ task.id }}">
-                            <option value="todo" {% if task.status == "todo" %}selected{% endif %}>To Do</option>
-                            <option value="in_progress" {% if task.status == "in_progress" %}selected{% endif %}>In Progress</option>
-                            <option value="completed" {% if task.status == "completed" %}selected{% endif %}>Completed</option>
-                        </select>
+                        <form class="status-form" method="POST" action="{% url 'update_task_status' task.id %}">
+                            {% csrf_token %}
+                            <select class="assigned-task-status" name="status" data-task-id="{{ task.id }}">
+                                <option value="todo" {% if task.status == "todo" %}selected{% endif %}>To Do</option>
+                                <option value="in_progress" {% if task.status == "in_progress" %}selected{% endif %}>In Progress</option>
+                                <option value="completed" {% if task.status == "completed" %}selected{% endif %}>Completed</option>
+                            </select>
+                            <button class="task-button" type="submit">Update Status</button>
+                        </form>
                     </div>
                     {% endif %}
                     {% endfor %}
